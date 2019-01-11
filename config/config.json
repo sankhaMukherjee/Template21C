@@ -18,21 +18,11 @@
         "rawDataFormat" : "json",
         "trainingMode"  : false,
 
-        "dropCols" : ["_id"],
-        "binaryCols" : {
-            "resident_type": "Tax Resident"
-        },
-        "catCols" : [
-            "chargeable_income_group"
-        ],
-        "numericalCols" : [
-            "assessable_income", 
-            "chargeable_income",
-            "net_tax_assessed", 
-            "number_of_taxpayers",
-            "year_of_assessment"
-        ],
-        "toPredict"   : "chargeable_income",
+        "dropCols"      : [],
+        "binaryCols"    : {},
+        "catCols"       : [],
+        "numericalCols" : [],
+        "toPredict"     : null,
         
         "saveCSV"     : "data/intermediate/data.csv",
         "saveX"       : "data/intermediate/X.npy",
