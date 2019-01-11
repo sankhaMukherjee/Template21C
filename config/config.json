@@ -1,0 +1,85 @@
+
+{
+    "toDos":{
+        "downloadData"      : false,
+        "featureEngg"       : false,
+        "linearRegression"  : false,
+        "ridgeRegression"   : true
+    },
+
+    "downloadData":{
+        "url"      : "https://data.gov.sg/api/action/datastore_search?resource_id=2ca3d23f-1139-4421-a806-48dd4ee9b6c4",
+        "fileName" : "taxableIndividuals.csv",
+        "folder"   : "data/raw_data"
+    },
+
+    "featureEngg": {
+        "rawData"       : "data/raw_data/raw_data.json",
+        "rawDataFormat" : "json",
+        "trainingMode"  : false,
+
+        "dropCols" : ["_id"],
+        "binaryCols" : {
+            "resident_type": "Tax Resident"
+        },
+        "catCols" : [
+            "chargeable_income_group"
+        ],
+        "numericalCols" : [
+            "assessable_income", 
+            "chargeable_income",
+            "net_tax_assessed", 
+            "number_of_taxpayers",
+            "year_of_assessment"
+        ],
+        "toPredict"   : "chargeable_income",
+        
+        "saveCSV"     : "data/intermediate/data.csv",
+        "saveX"       : "data/intermediate/X.npy",
+        "savey"       : "data/intermediate/y.npy",
+
+        "oheModelFile" : "models/oheModel.joblib"
+    },
+
+    "linearRegression" : {
+
+        "modelFile"   : "models/LR.joblib",
+        "X"           : "data/intermediate/X.npy",
+        "y"           : "data/intermediate/y.npy",
+
+        "trainMode" : false,
+        "testMode"  : true,
+        
+        "XHat"        : "data/intermediate/X.npy",
+        
+        "modelParams" : { 
+            "fit_intercept" : true, 
+            "normalize"     : false, 
+            "copy_X"        : true, 
+            "n_jobs"        : null
+        }
+    }, 
+
+    "ridgeRegression" : {
+
+        "modelFile"   : "models/RR.joblib",
+        "X"           : "data/intermediate/X.npy",
+        "y"           : "data/intermediate/y.npy",
+
+        "trainMode" : false,
+        "testMode"  : true,
+        
+        "XHat"        : "data/intermediate/X.npy",
+        
+        "modelParams" : {
+            "alpha"           : 1.0, 
+            "fit_intercept"   : true, 
+            "normalize"       : false, 
+            "copy_X"          : true, 
+            "max_iter"        : null, 
+            "tol"             : 0.001, 
+            "solver"          : "auto", 
+            "random_state"    : null 
+        }
+    }
+}
