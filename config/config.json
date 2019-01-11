@@ -4,7 +4,7 @@
         "downloadData"      : false,
         "featureEngg"       : false,
         "linearRegression"  : false,
-        "ridgeRegression"   : true
+        "ridgeRegression"   : false
     },
 
     "downloadData":{
@@ -38,7 +38,7 @@
         "y"           : "data/intermediate/y.npy",
 
         "trainMode" : false,
-        "testMode"  : true,
+        "testMode"  : false,
         
         "XHat"        : "data/intermediate/X.npy",
         
@@ -57,7 +57,7 @@
         "y"           : "data/intermediate/y.npy",
 
         "trainMode" : false,
-        "testMode"  : true,
+        "testMode"  : false,
         
         "XHat"        : "data/intermediate/X.npy",
         
